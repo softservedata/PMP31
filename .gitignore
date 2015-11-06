@@ -1,0 +1,48 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Ignore .NET Project files
+*.sdf
+*.slf
+*.suo
+*.vcxproj
+*.filter
+*.user
+*.log
+*.tlog
+*.manifest
+*.idb
+*.idb
+*.pdb
+/**/Debug
+/Debug/*
+/**/bin
+/bin/*
+/**/obj
+/obj/*
