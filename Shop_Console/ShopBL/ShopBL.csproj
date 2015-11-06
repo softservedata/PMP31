@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF3E0B7B-20C9-4B0C-9F2C-2A86AF91B54C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ShopBL</RootNamespace>
+    <AssemblyName>ShopBL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ShopBLClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CartsDAL\CartsDAL.csproj">
+      <Project>{e24e4111-385f-4990-9277-d27501cb434d}</Project>
+      <Name>CartsDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Carts_ItemsDAL\Carts_ItemsDAL.csproj">
+      <Project>{98a652c3-9d32-4503-af58-238de0f83dd9}</Project>
+      <Name>Carts_ItemsDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItemsDAL\ItemsDAL.csproj">
+      <Project>{0dec6b6a-60f0-4ef7-a22c-27344ef06ef8}</Project>
+      <Name>ItemsDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrdersDAL\OrdersDAL.csproj">
+      <Project>{ecdd2fef-4c02-4245-9e43-b2ce02a459bb}</Project>
+      <Name>OrdersDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orders_ItemsDAL\Orders_ItemsDAL.csproj">
+      <Project>{56dd1c5a-b0ff-412c-b17d-54bbe874411a}</Project>
+      <Name>Orders_ItemsDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shop_DB_Model\Shop_DB_Model.csproj">
+      <Project>{951763ed-8bb2-4cbb-b5d5-ab5583dea1ee}</Project>
+      <Name>Shop_DB_Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UsersDAL\UsersDAL.csproj">
+      <Project>{07bab219-6350-4330-92e0-49d7e9eb19e5}</Project>
+      <Name>UsersDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
