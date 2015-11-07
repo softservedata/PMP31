@@ -119,5 +119,26 @@ namespace ItemsDAL
             }
             catch { }
         }
+
+        public void changeCategory(Item item, string category)
+        {
+            try
+            {
+                item.category = category;
+                Shop.SaveChanges();
+            }
+            catch { }
+        }
+
+        public void changeCategory(long itemID, string category)
+        {
+            try
+            {
+                Item item = getById(itemID);
+                item.category = category;
+                Shop.SaveChanges();
+            }
+            catch { }
+        }
     }
 }

@@ -24,6 +24,7 @@ namespace Shop_DB_Model
         public string name { get; set; }
         public double price { get; set; }
         public int count { get; set; }
+        public string category { get; set; }
     
         public virtual ICollection<Carts_Items> Carts_Items { get; set; }
         public virtual ICollection<Orders_Items> Orders_Items { get; set; }

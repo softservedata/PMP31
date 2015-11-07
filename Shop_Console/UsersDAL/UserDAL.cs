@@ -121,5 +121,26 @@ namespace UsersDAL
             }
             catch { }
         }
+
+        public void changeBalanse(User user, double balanse)
+        {
+            try 
+            {
+                user.balanse = balanse;
+                Shop.SaveChanges();
+            }
+            catch { }
+        }
+
+        public void changeBalance(long userID, double balanse)
+        {
+            try 
+            {
+                User user = getById(userID);
+                user.balanse = balanse;
+                Shop.SaveChanges();
+            }
+            catch { }
+        }
     }
 }

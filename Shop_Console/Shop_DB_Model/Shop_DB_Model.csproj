@@ -79,9 +79,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Shop_DB_Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>Shop_DB_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="User.cs">
       <DependentUpon>Shop_DB_Model.tt</DependentUpon>
     </Compile>

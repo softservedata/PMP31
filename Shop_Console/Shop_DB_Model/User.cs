@@ -21,9 +21,10 @@ namespace Shop_DB_Model
         }
     
         public long userID { get; set; }
-        public string name { get; set; }
         public string login { get; set; }
         public string password { get; set; }
+        public string name { get; set; }
+        public double balanse { get; set; }
     
         public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

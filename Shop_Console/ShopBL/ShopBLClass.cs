@@ -19,6 +19,7 @@ namespace ShopBL
         public string name;
         public string login;
         public string password;
+        public double balanse;
 
         public long UserID
         {
@@ -32,6 +33,7 @@ namespace ShopBL
                 user.name = usert.name;
                 user.login = usert.login;
                 user.password = usert.password;
+                user.balanse = usert.balanse;
                 return user;
             }
             else { return null; }
@@ -45,6 +47,7 @@ namespace ShopBL
                 usert.name = user.name;
                 usert.login = user.login;
                 usert.password = user.password;
+                usert.balanse = user.balanse;
                 return usert;
             }
             else { return null; }
@@ -107,6 +110,16 @@ namespace ShopBL
             new UserDAL().changePassword(userID, name);
         }
 
+        public void changeBalanse(UserT usert, double balanse)
+        {
+            new UserDAL().changeBalanse(UserT.ToUser(usert), balanse);
+        }
+
+        public void changeBalanse(long userID, double balanse)
+        {
+            new UserDAL().changeBalance(userID, balanse);
+        }
+
     }
 
     public class ItemT
@@ -115,6 +128,7 @@ namespace ShopBL
         public string name;
         public double price;
         public int count;
+        public string category;
 
         public long ItemID
         {
@@ -128,6 +142,7 @@ namespace ShopBL
                 item.name = itemt.name;
                 item.price = itemt.price;
                 item.count = itemt.count;
+                item.category = itemt.category;
                 return item;
             }
             else { return null; }
@@ -141,6 +156,7 @@ namespace ShopBL
                 itemt.name = item.name;
                 itemt.price = item.price;
                 itemt.count = item.count;
+                itemt.category = item.category;
                 return itemt;
             }
             else { return null; }
@@ -207,6 +223,17 @@ namespace ShopBL
         {
             new ItemDAL().changeCount(itemID, count);
         }
+
+        public void changeCategory(ItemT itemt, string category)
+        {
+            new ItemDAL().changeCategory(ItemT.ToItem(itemt), category);
+        }
+
+        public void changeCategory(long itemID, string category)
+        {
+            new ItemDAL().changeCategory(itemID, category);
+        }
+
     }
 
     public class OrderT

@@ -4,20 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="afdc7a3fe71d44a2814da9b61b430a12" Name="Diagram1">
-        <EntityTypeShape EntityType="ShopDBModel.Cart" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Carts_Items" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Item" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Order" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.Orders_Items" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ShopDBModel.User" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="ShopDBModel.FK_Carts_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDBModel.FK_Carts_Items_Carts" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDBModel.FK_Carts_Items_Items" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDBModel.FK_Orders_Items_Items" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDBModel.FK_Orders_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="ShopDBModel.FK_Orders_Items_Orders" ManuallyRouted="false" />
+      <Diagram DiagramId="a801c92aad4041838c4fa7df8af4b43c" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopDataBaseModel.Cart" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDataBaseModel.Carts_Items" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDataBaseModel.Item" Width="1.5" PointX="7.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDataBaseModel.Order" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDataBaseModel.Orders_Items" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopDataBaseModel.User" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="ShopDataBaseModel.FK_Carts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDataBaseModel.FK_Carts_Items_Carts" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDataBaseModel.FK_Carts_Items_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDataBaseModel.FK_Orders_Items_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDataBaseModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopDataBaseModel.FK_Orders_Items_Orders" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -30,7 +30,6 @@ namespace Shop_DB_Model
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Orders_Items> Orders_Items { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }
