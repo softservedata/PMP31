@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="orderManagerModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="orderManagerModelStoreContainer">
+          <EntitySet Name="Delivers" EntityType="orderManagerModel.Store.Delivers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Items" EntityType="orderManagerModel.Store.Items" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders" EntityType="orderManagerModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="orderManagerModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Items_Delivers" Association="orderManagerModel.Store.FK_Items_Delivers">
+            <End Role="Delivers" EntitySet="Delivers" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Items" Association="orderManagerModel.Store.FK_Orders_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="orderManagerModel.Store.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Delivers">
+          <Key>
+            <PropertyRef Name="id_deliver" />
+          </Key>
+          <Property Name="id_deliver" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="id_deliver" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_item" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="mail" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Items_Delivers">
+          <End Role="Delivers" Type="orderManagerModel.Store.Delivers" Multiplicity="1" />
+          <End Role="Items" Type="orderManagerModel.Store.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivers">
+              <PropertyRef Name="id_deliver" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="id_deliver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Items">
+          <End Role="Items" Type="orderManagerModel.Store.Items" Multiplicity="1" />
+          <End Role="Orders" Type="orderManagerModel.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="id_item" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="id_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="orderManagerModel.Store.Users" Multiplicity="1" />
+          <End Role="Orders" Type="orderManagerModel.Store.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="orderManagerModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="orderManagerEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Delivers" EntityType="orderManagerModel.Delivers" />
+          <EntitySet Name="Items" EntityType="orderManagerModel.Items" />
+          <EntitySet Name="Orders" EntityType="orderManagerModel.Orders" />
+          <EntitySet Name="Users" EntityType="orderManagerModel.Users" />
+          <AssociationSet Name="FK_Items_Delivers" Association="orderManagerModel.FK_Items_Delivers">
+            <End Role="Delivers" EntitySet="Delivers" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Items" Association="orderManagerModel.FK_Orders_Items">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="orderManagerModel.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Delivers">
+          <Key>
+            <PropertyRef Name="id_deliver" />
+          </Key>
+          <Property Name="id_deliver" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Items" Relationship="orderManagerModel.FK_Items_Delivers" FromRole="Delivers" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="id_item" />
+          </Key>
+          <Property Name="id_item" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="id_deliver" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Delivers" Relationship="orderManagerModel.FK_Items_Delivers" FromRole="Items" ToRole="Delivers" />
+          <NavigationProperty Name="Orders" Relationship="orderManagerModel.FK_Orders_Items" FromRole="Items" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_item" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="orderManagerModel.FK_Orders_Items" FromRole="Orders" ToRole="Items" />
+          <NavigationProperty Name="Users" Relationship="orderManagerModel.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mail" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Orders" Relationship="orderManagerModel.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+        </EntityType>
+        <Association Name="FK_Items_Delivers">
+          <End Role="Delivers" Type="orderManagerModel.Delivers" Multiplicity="1" />
+          <End Role="Items" Type="orderManagerModel.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Delivers">
+              <PropertyRef Name="id_deliver" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="id_deliver" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Items">
+          <End Role="Items" Type="orderManagerModel.Items" Multiplicity="1" />
+          <End Role="Orders" Type="orderManagerModel.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="id_item" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="id_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="orderManagerModel.Users" Multiplicity="1" />
+          <End Role="Orders" Type="orderManagerModel.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="orderManagerModelStoreContainer" CdmEntityContainer="orderManagerEntities">
+          <EntitySetMapping Name="Delivers">
+            <EntityTypeMapping TypeName="orderManagerModel.Delivers">
+              <MappingFragment StoreEntitySet="Delivers">
+                <ScalarProperty Name="id_deliver" ColumnName="id_deliver" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="orderManagerModel.Items">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="id_deliver" ColumnName="id_deliver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="orderManagerModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_item" ColumnName="id_item" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="orderManagerModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
