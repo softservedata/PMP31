@@ -30,6 +30,7 @@ namespace ShopBL
             if (usert != null)
             {
                 User user = new User();
+                user.userID = usert.userID;
                 user.name = usert.name;
                 user.login = usert.login;
                 user.password = usert.password;
@@ -90,6 +91,11 @@ namespace ShopBL
             return users;
         }
 
+        public void updateUser(UserT updateUsert)
+        {
+            new UserDAL().updateUser(UserT.ToUser(updateUsert));
+        }
+
         public void changeName(UserT usert, string name)
         {
             new UserDAL().changeName(UserT.ToUser(usert), name);
@@ -139,6 +145,7 @@ namespace ShopBL
             if (itemt != null)
             {
                 Item item = new Item();
+                item.itemID = itemt.itemID;
                 item.name = itemt.name;
                 item.price = itemt.price;
                 item.count = itemt.count;
@@ -192,6 +199,11 @@ namespace ShopBL
                 items.Add(ItemT.ToItemT(item));
             }
             return items;
+        }
+
+        public void updateItem(ItemT updateItemt)
+        {
+            new ItemDAL().updateItem(ItemT.ToItem(updateItemt));
         }
 
         public void changeName(ItemT itemt, string name)
@@ -251,6 +263,7 @@ namespace ShopBL
             if (ordert != null)
             {
                 Order order = new Order();
+                order.orderID = ordert.orderID;
                 order.userID = ordert.userID;
                 return order;
             }
@@ -323,6 +336,7 @@ namespace ShopBL
             if (cartT != null)
             {
                 Cart cart = new Cart();
+                cart.cartID = cartT.cartID;
                 cart.userID = cartT.userID;
                 return cart;
             }

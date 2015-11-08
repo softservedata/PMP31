@@ -57,6 +57,20 @@ namespace ItemsDAL
             return query.ToList<Item>();
         }
 
+        public void updateItem(Item updateItem)
+        {
+            try
+            {
+                Item item = getById(updateItem.itemID);
+                item.name = updateItem.name;
+                item.price = updateItem.price;
+                item.count = updateItem.count;
+                item.category = updateItem.category;
+                Shop.SaveChanges();
+            }
+            catch { }
+        }
+
         public void changeName(Item item, string name)
         {
             try

@@ -80,6 +80,19 @@ namespace UsersDAL
             return query.ToList<User>();
         }
 
+        public void updateUser(User updateUser)
+        {
+            try
+            {
+                User user = getById(updateUser.userID);
+                user.name = updateUser.name;
+                user.password = updateUser.password;
+                user.balanse = updateUser.balanse;
+                Shop.SaveChanges();
+            }
+            catch { }
+        }
+
         public void changeName(User user, string name)
         {
             try
