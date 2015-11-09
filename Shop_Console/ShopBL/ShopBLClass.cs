@@ -583,5 +583,25 @@ namespace ShopBL
 
     public class ShopBLClass
     {
+        public long LoginUser(string login, string password)
+        {
+            UserT user = new UserT();
+            user = user.getByLogin(login);
+            if (user == null) 
+            {
+                return -1;
+            }
+            else
+            {
+                if (user.password == password)
+                {
+                    return user.UserID;
+                }
+                else
+                {
+                    return -2;
+                }
+            }  
+        }
     }
 }

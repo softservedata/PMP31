@@ -11,15 +11,15 @@ namespace Shop_Console
     {
         static void Main(string[] args)
         {
-            CartT cart = new CartT();
-            cart = cart.getById(1);
-            Console.WriteLine(cart.CartID);
-            Console.WriteLine(cart.userID);
-            cart.itemList = new Carts_ItemsT().getCartsByID(cart.CartID);
-            foreach (Carts_ItemsT s in cart.itemList)
-            {
-                Console.WriteLine(s.itemID);
-            }
+            //CartT cart = new CartT();
+            //cart = cart.getById(1);
+            //Console.WriteLine(cart.CartID);
+            //Console.WriteLine(cart.userID);
+            //cart.itemList = new Carts_ItemsT().getCartsByID(cart.CartID);
+            //foreach (Carts_ItemsT s in cart.itemList)
+            //{
+            //    Console.WriteLine(s.itemID);
+            //}
         }
     }
 }
