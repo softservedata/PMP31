@@ -41,7 +41,8 @@ namespace OrdersDAL
         {
             try
             {
-                Shop.Orders.Remove(order);
+                Order orderr = getById(order.orderID);
+                Shop.Orders.Remove(orderr);
                 Shop.SaveChanges();
             }
             catch { }

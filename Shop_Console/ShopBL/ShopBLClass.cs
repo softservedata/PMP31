@@ -264,6 +264,8 @@ namespace ShopBL
         internal long orderID;
         public long userID;
 
+        public List<Carts_ItemsT> itemList;
+
         public long OrderID
         {
             get { return orderID; }
@@ -336,6 +338,8 @@ namespace ShopBL
     {
         internal long cartID;
         public long userID;
+
+        public List<Carts_ItemsT> itemList;
 
         public long CartID
         {

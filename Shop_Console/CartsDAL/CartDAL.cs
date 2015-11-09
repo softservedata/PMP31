@@ -41,7 +41,8 @@ namespace CartsDAL
         {
             try
             {
-                Shop.Carts.Remove(cart);
+                Cart cartt = getById(cart.cartID);
+                Shop.Carts.Remove(cartt);
                 Shop.SaveChanges();
             }
             catch { }
