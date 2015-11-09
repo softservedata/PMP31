@@ -57,6 +57,22 @@ namespace ItemsDAL
             return query.ToList<Item>();
         }
 
+        public List<Item> getItemsByCategory(string category)
+        {
+            List<Item> itemList = new List<Item>();
+            var query = from b in Shop.Items
+                        orderby b.itemID
+                        select b;
+            foreach (var s in query)
+            {
+                if (s.category == category)
+                {
+                    itemList.Add(s);
+                }
+            }
+            return itemList;
+        }
+
         public void updateItem(Item updateItem)
         {
             try

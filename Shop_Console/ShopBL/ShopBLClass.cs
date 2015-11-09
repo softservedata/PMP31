@@ -201,6 +201,17 @@ namespace ShopBL
             return items;
         }
 
+        public List<ItemT> getItemsByCategory(string category)
+        {
+            List<Item> itemList = new ItemDAL().getItemsByCategory(category);
+            List<ItemT> itemListT = new List<ItemT>();
+            foreach (var s in itemList)
+            {
+                itemListT.Add(ItemT.ToItemT(s));
+            }
+            return itemListT;
+        }
+
         public void updateItem(ItemT updateItemt)
         {
             new ItemDAL().updateItem(ItemT.ToItem(updateItemt));

@@ -11,7 +11,6 @@ namespace Shop_Console
     {
         static void Main(string[] args)
         {
-
         }
     }
 }
