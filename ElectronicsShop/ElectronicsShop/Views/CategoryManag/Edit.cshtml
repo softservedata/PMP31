@@ -1,0 +1,72 @@
+﻿@model ElectronicsShop.Models.CategoryModel
+@using PagedList.Mvc;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Start Container -->
+    <div class="container">
+
+        <!-- Start Header -->
+        <div class="row" id="header">
+
+            <div class="col-xs-7">
+            </div>
+            <div class="col-xs-4">
+                <h1>Electronics shop</h1>
+            </div>
+            <div class="col-xs-1">
+                <a class="btn btn-primary btn-md" href=" ~/">Log out</a>
+            </div>
+        </div>
+        <!-- End Header -->
+        <!-- Start Main Page Content -->
+        <div class="row" id="content-column">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                @using (Html.BeginForm())
+                {
+                    @Html.ValidationSummary()
+                    <label>Edit</label>
+                    <div class="form-group editor-field">
+                        @Html.TextBoxFor(x => x.categ_name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.categ_name)
+                    </div>
+                    <div class="text-center">
+
+                        <button type="submit" class="btn btn-primary btn-md">Edit</button>
+                    </div>
+                }
+                <div class="text-center">
+                    <a href="~/CategoryManag">Back to list</a>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+
+        </div>
+        <!-- End Main Page Content -->
+        <!-- Start Footer -->
+        <div class="row" id="footer">
+
+            <div class="col-xs-12">
+                &copy; 2015 Electronics shop
+            </div>
+        </div>
+        <!-- End Footer -->
+
+    </div>
+    <!-- End Container -->
+</body>
+</html>

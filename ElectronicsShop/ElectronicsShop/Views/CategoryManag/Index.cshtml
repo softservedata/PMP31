@@ -1,0 +1,84 @@
+﻿@model PagedList.IPagedList<ElectronicsShop.Models.CategoryModel>
+@using PagedList.Mvc;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+
+
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- Start Container -->
+    <div class="container">
+
+        <!-- Start Header -->
+        <div class="row" id="header">
+
+            <div class="col-xs-7">
+            </div>
+            <div class="col-xs-4">
+                <h1>Electronics shop</h1>
+            </div>
+            <div class="col-xs-1">
+                <a class="btn btn-primary btn-md" href=" ~/">Log out</a>
+            </div>
+        </div>
+        <!-- End Header -->
+        <!-- Start Main Page Content -->
+        <div class="row" id="content-column">
+            <div class="col-xs-8">
+                <h2>Categories list</h2>
+                <a href="CategoryManag/Add"><h3>Create new</h3></a>
+               
+                <table class="table table-bordered">
+                    <tr>
+                        <td><p>ID</p></td>
+                        <td><p>Name</p></td>
+                    </tr>
+                    @foreach (var m in Model)
+                    {
+                        <tr>
+                            <td><p>@m.id_categ</p></td>
+                            <td><p>@m.categ_name</p></td>
+                            <td><a href="CategoryManag/Edit/@m.id_categ">Edit</a></td>
+                            <td><a href="CategoryManag/Delete/@m.id_categ">Delete</a></td>
+                        </tr>
+                    }
+                </table>
+                <br />
+                @Html.PagedListPager(Model, page => Url.Action("Index",
+                    new { page, pageSize = Model.PageSize }))
+                Showing @Model.FirstItemOnPage to @Model.LastItemOnPage of @Model.TotalItemCount
+                CategoryModel
+
+
+            </div>
+        </div>
+        <!-- End Main Page Content -->
+        <!-- Start Footer -->
+        <div class="row" id="footer">
+
+            <div class="col-xs-12">
+                &copy; 2015 Electronics shop
+            </div>
+        </div>
+        <!-- End Footer -->
+
+    </div>
+    <!-- End Container -->
+</body>
+</html>
